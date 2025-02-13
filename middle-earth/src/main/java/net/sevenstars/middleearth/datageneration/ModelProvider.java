@@ -452,11 +452,15 @@ public class ModelProvider extends FabricModelProvider {
             blockStateModelGenerator.registerDoor(door.door());
         }
 
+        //TODO find out why some blocks are null here
         for (Block block : TintableCrossModel.notTintedBlocks) {
-            //TODO fix, one of the block is minecraft:air
-            //if (block != null) blockStateModelGenerator.registerTintableCross(block, BlockStateModelGenerator.CrossType.NOT_TINTED);
-
+            if (block!= null) blockStateModelGenerator.registerTintableCross(block, BlockStateModelGenerator.CrossType.NOT_TINTED);
         }
+
+        blockStateModelGenerator.registerPlantPart(ModNatureBlocks.GLOWWORM_WEBBING, ModNatureBlocks.GLOWWORM_MAIN, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerPlantPart(ModNatureBlocks.MIRKWOOD_VINES, ModNatureBlocks.MIRKWOOD_VINES_PLANT, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerItemModel(ModNatureBlocks.GLOWWORM_WEBBING);
+        blockStateModelGenerator.registerItemModel(ModNatureBlocks.MIRKWOOD_VINES);
 
         for (Block block : TintableCrossModel.tintedBlocks) {
             blockStateModelGenerator.registerTintableCross(block, BlockStateModelGenerator.CrossType.TINTED);
