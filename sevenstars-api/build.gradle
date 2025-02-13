@@ -30,12 +30,7 @@ dependencies {
 }
 
 
-repositories {
-    maven {
-        name = "TerraformersMC"
-        url = "https://maven.terraformersmc.com/"
-    }
-}
+repositories { }
 
 
 processResources {

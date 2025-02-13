@@ -11,10 +11,11 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/"
-	}
+//    // EMI
+//    maven {
+//        name = "TerraformersMC"
+//        url = "https://maven.terraformersmc.com/"
+//    }
 }
 
 dependencies {
@@ -31,8 +32,8 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
-	modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
+	//	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
+	//	modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
 }
 
 processResources {
