@@ -8,6 +8,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+rootProject.name = 'sevenstars-project'
 include 'middle-earth'
 include 'sevenstars-api'
 
