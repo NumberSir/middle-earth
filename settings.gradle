@@ -9,7 +9,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'sevenstars'
+rootProject.name = 'sevenstars-project'
 include 'middle-earth'
 include 'sevenstars-api'
 
