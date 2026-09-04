@@ -107,11 +107,23 @@ public class ServerConfigME {
         ENABLE_MOUNT_BROADHOOF_GOAT = CONFIG.getOrDefault("enableMountBroadhoofGoat", true);
 
         ENABLE_GOLDEN_FOOD_RECIPES = CONFIG.getOrDefault("enableGoldenFoodRecipes", false);
-        ENABLE_GOLEMS = CONFIG.getOrDefault("enableGoldenFoodRecipes", false);
+        ENABLE_GOLEMS = CONFIG.getOrDefault("enableGolems", false);
 
         SHARPNESS_MAX_LEVEL = CONFIG.getOrDefault("sharpnessMaxLevel", 3);
         POWER_MAX_LEVEL = CONFIG.getOrDefault("powerMaxLevel", 3);
 
         MiddleEarth.LOGGER.logDebugMsg("All server configs (" + configs.getConfigsList().size() + ") have been set properly");
+    }
+
+    /**
+     * To make the edit work without restart the game
+     * by the command ingame
+     * /middle_earth config reload
+     */
+    public static void reload() {
+        if (CONFIG != null) {
+            CONFIG.reload();
+            assignServerConfigs();
+        }
     }
 }
