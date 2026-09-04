@@ -126,4 +126,11 @@ public class ServerConfigME {
             assignServerConfigs();
         }
     }
+
+    public static void reset() {
+        if (CONFIG != null) {
+            CONFIG.delete();
+        }
+        registerConfigs();
+    }
 }

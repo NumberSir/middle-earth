@@ -72,4 +72,11 @@ public class ClientConfigME {
             assignClientConfigs();
         }
     }
+
+    public static void reset() {
+        if (CONFIG != null) {
+            CONFIG.delete();
+        }
+        registerConfigs();
+    }
 }
