@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.List;
 
 public class REICommonPluginME implements REICommonPlugin {
-    public static final CategoryIdentifier<ArtisanTableDisplay> ARTISAN_TABLE_CATEGORY = CategoryMiddleEarth.id("artisan_table");
-    public static final CategoryIdentifier<AlloyingDisplay> FORGE_CATEGORY = CategoryMiddleEarth.id("forge");
+    public static final CategoryIdentifier<ArtisanTableDisplay> ARTISAN_TABLE_CATEGORY = CategoryIdentifier.of("artisan_table");
+    public static final CategoryIdentifier<AlloyingDisplay> FORGE_CATEGORY = CategoryIdentifier.of("forge");
 
     @Override
     public void registerDisplaySerializer(DisplaySerializerRegistry registry) {
