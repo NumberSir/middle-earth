@@ -7,7 +7,7 @@ import net.sevenstars.middleearth.MiddleEarth;
 
 public class ServerConfigME {
     public static SimpleConfig CONFIG;
-    private final static String PATH = MiddleEarth.MOD_ID + "/config-common";
+    private final static String PATH = MiddleEarth.getModId() + "/config-common";  // FIXME: might be a better way
     private static ConfigProvider configs;
 
     /**Should players be allowed to change factions when they use the starlight phial?**/

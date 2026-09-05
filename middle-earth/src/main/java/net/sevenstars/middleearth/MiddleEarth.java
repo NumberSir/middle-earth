@@ -43,12 +43,12 @@ import net.sevenstars.middleearth.world.map.MiddleEarthMapGeneration;
 import net.sevenstars.middleearth.world.spawners.EntitySpawningME;
 
 public class MiddleEarth implements ModInitializer {
-	public static final String MOD_ID = "middle-earth";
+	private static final String MOD_ID = "middle-earth";
 	private static final String OLD_MOD_ID = "me";
-	public static final String MOD_VERSION = "1.0.0-1.21.8-beta";
+	private static final String MOD_VERSION = "1.0.0-1.21.8-beta";
 	public static final boolean IS_DEBUG = true;
 	public static final boolean ENABLE_INSTANT_BOOTING = true;
-	public static final ModLogger LOGGER = new ModLogger(MOD_ID, IS_DEBUG);
+	public static final ModLogger LOGGER = new ModLogger(getModId(), IS_DEBUG);
 
     @Override
 	public void onInitialize() {
@@ -141,9 +141,21 @@ public class MiddleEarth implements ModInitializer {
 		}
 	}
 
+	// Getter & Setter
+	public static String getModId() {
+		return MiddleEarth.MOD_ID;
+	}
+
+	public static String getOldModId() {
+		return MiddleEarth.OLD_MOD_ID;
+	}
+	public static String getModVersion() {
+		return MiddleEarth.MOD_VERSION;
+	}
+
 	// Logger
 	public static void logRegistryMsg(String registry) {
-		LOGGER.logDebugMsg("Registering Mod " +  registry + " for " + MOD_ID);
+		LOGGER.logDebugMsg("Registering Mod " +  registry + " for " + getModId());
 	}
 
 	// Identifiers
@@ -155,15 +167,15 @@ public class MiddleEarth implements ModInitializer {
 	 * MiddleEarth.id(path) = MiddleEarth.id(path)
 	 */
 	public static Identifier id(String path){
-		return id(MOD_ID, path);
+		return id(getModId(), path);
 	}
 
 	public static Identifier idOld(String path){
-		return id(OLD_MOD_ID, path);
+		return id(getOldModId(), path);
 	}
 
 	public static Identifier idFilePath(String... names){
-		return IdentifierUtil.build(MOD_ID, stringAggregate('/', names));
+		return IdentifierUtil.build(getModId(), stringAggregate('/', names));
 	}
 
 	public static Identifier idVanilla(String... names){
@@ -171,7 +183,7 @@ public class MiddleEarth implements ModInitializer {
 	}
 
 	public static Identifier idAggregate(String... names){
-		return IdentifierUtil.buildAggregate(MOD_ID, names);
+		return IdentifierUtil.buildAggregate(getModId(), names);
 	}
 
 	public static String stringAggregate(char delimiter, String... names){
@@ -179,7 +191,7 @@ public class MiddleEarth implements ModInitializer {
 	}
 
 	public static Identifier idAggregate(char delimiter, String... names){
-		return IdentifierUtil.build(MOD_ID, IdentifierUtil.createAggregateValue(delimiter, names));
+		return IdentifierUtil.build(getModId(), IdentifierUtil.createAggregateValue(delimiter, names));
 	}
 
 	public static Identifier ofId(String stringId){
@@ -215,7 +227,7 @@ public class MiddleEarth implements ModInitializer {
         return prefix + "." + value;
     }
 	public static String rawTranslationKeyWithModId(String prefix, String value){
-		return rawTranslationKey(prefix + "." + MOD_ID, value);
+		return rawTranslationKey(prefix + "." + getModId(), value);
 	}
 
 	public static String rawTranslationKey(LangCategory category, String value){
@@ -234,6 +246,6 @@ public class MiddleEarth implements ModInitializer {
 	 * <br/>	    )
 	 */
 	public static String rawTranslationKeyWithModId(LangCategory category, String value){
-		return rawTranslationKey(category.Prefix + "." + MOD_ID, value);
+		return rawTranslationKey(category.Prefix + "." + getModId(), value);
 	}
 }

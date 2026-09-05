@@ -7,7 +7,7 @@ import net.sevenstars.middleearth.MiddleEarth;
 
 public class ClientConfigME {
     public static SimpleConfig CONFIG;
-    private final static String PATH = MiddleEarth.MOD_ID + "/config-client";
+    private final static String PATH = MiddleEarth.getModId() + "/config-client";  // FIXME: might be a better way
 
     /**Should you see the map overlay button in the middle-earth map gui**/
     public static boolean ENABLE_MAP_OVERLAY;
