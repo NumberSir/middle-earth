@@ -44,7 +44,7 @@ import net.sevenstars.middleearth.world.spawners.EntitySpawningME;
 
 public class MiddleEarth implements ModInitializer {
 	public static final String MOD_ID = "middle-earth";
-	public static final String OLD_MOD_ID = "me";
+	private static final String OLD_MOD_ID = "me";
 	public static final String MOD_VERSION = "1.0.0-1.21.8-beta";
 	public static final boolean IS_DEBUG = true;
 	public static final boolean ENABLE_INSTANT_BOOTING = true;
@@ -145,32 +145,50 @@ public class MiddleEarth implements ModInitializer {
 	public static void logRegistryMsg(String registry) {
 		LOGGER.logDebugMsg("Registering Mod " +  registry + " for " + MOD_ID);
 	}
+
 	// Identifiers
-	public static Identifier id(String path){
-		return IdentifierUtil.build(MOD_ID, path);
+	// This is for compatibility with OLD_MOD_ID
+	public static Identifier id(String prefix, String path) {
+		return IdentifierUtil.build(prefix, path);
 	}
+
+	public static Identifier id(String path){
+		return id(MOD_ID, path);
+	}
+
+	public static Identifier idOld(String path){
+		return id(OLD_MOD_ID, path);
+	}
+
 	public static Identifier idFilePath(String... names){
 		return IdentifierUtil.build(MOD_ID, stringAggregate('/', names));
 	}
+
 	public static Identifier idVanilla(String... names){
 		return IdentifierUtil.ofVanilla(stringAggregate('/', names));
 	}
+
 	public static Identifier idAggregate(String... names){
 		return IdentifierUtil.buildAggregate(MOD_ID, names);
 	}
+
 	public static String stringAggregate(char delimiter, String... names){
 		return IdentifierUtil.createAggregateValue(delimiter, names);
 	}
+
 	public static Identifier idAggregate(char delimiter, String... names){
 		return IdentifierUtil.build(MOD_ID, IdentifierUtil.createAggregateValue(delimiter, names));
 	}
+
 	public static Identifier ofId(String stringId){
 		return IdentifierUtil.getIdentifierFromString(stringId);
 	}
+
 	public static Identifier appendSuffix(Identifier base, String suffix) {
 		String id = base.toString();
 		return Identifier.of(id + suffix);
 	}
+
 	public static Identifier appendPrefix(Identifier base, Identifier prefixId) {
 		if(base == null)
 			return null;
@@ -185,6 +203,7 @@ public class MiddleEarth implements ModInitializer {
 	public static String rawTranslationKey(LangCategory category, Identifier value){
 		return value.toTranslationKey(category.Prefix);
 	}
+
 	public static String rawTranslationKey(String prefix, String value){
 		return prefix + "." + value;
 	}
