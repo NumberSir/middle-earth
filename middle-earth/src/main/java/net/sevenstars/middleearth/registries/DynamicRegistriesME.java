@@ -54,7 +54,7 @@ public class DynamicRegistriesME extends DynamicRegistriesAPI {
     public static final RegistryKey<Registry<GreatHornVariant>> GREAT_HORN_VARIANTS = RegistryKey.ofRegistry(MiddleEarth.id("great_horn_variants"));
 
     public static void register() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Dynamic Entries for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Dynamic Entries");
         DynamicRegistries.registerSynced(RACE, Race.CODEC);
         DynamicRegistries.registerSynced(NPC_TYPE, NpcType.CODEC);
         DynamicRegistries.registerSynced(FACTION, Faction.CODEC);

@@ -2191,7 +2191,7 @@ public class EquipmentItemsME {
     }
 
     public static void registerModItems() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Equipment Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Equipment Items");
         ArmorTags.registerRecipesTemplates();
     }
 }

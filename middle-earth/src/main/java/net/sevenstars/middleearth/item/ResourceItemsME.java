@@ -316,6 +316,6 @@ public class ResourceItemsME {
     }
 
     public static void registerModItems() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Resource Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Resource Items");
     }
 }

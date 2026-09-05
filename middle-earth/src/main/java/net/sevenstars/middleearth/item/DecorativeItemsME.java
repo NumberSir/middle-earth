@@ -249,6 +249,6 @@ public class DecorativeItemsME {
     }
 
     public static void registerModItems() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Decorative Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Decorative Items");
     }
 }

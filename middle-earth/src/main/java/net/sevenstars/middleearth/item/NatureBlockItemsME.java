@@ -48,6 +48,6 @@ public class NatureBlockItemsME {
     }
 
     public static void registerModItems() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Nature Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Nature Items");
     }
 }

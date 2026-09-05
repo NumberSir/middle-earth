@@ -110,7 +110,7 @@ public class EntitiesME {
 
 
     public static void registerModEntities() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Entities for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Entities");
 
         FabricDefaultAttributeRegistry.register(STONE_TROLL, StoneTrollEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(PETRIFIED_TROLL, PetrifiedTrollEntity.setAttributes());

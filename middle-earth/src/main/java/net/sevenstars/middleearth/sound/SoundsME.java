@@ -41,6 +41,6 @@ public class SoundsME {
     }
 
     public static void registerModSounds() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod SoundEvents for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("SoundEvents");
     }
 }

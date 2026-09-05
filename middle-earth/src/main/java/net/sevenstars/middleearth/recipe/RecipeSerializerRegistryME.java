@@ -26,6 +26,6 @@ public class RecipeSerializerRegistryME<T extends Recipe<?>> {
     }
 
     public static void registerRecipeSerializers(){
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Recipe Serializers for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Recipe Serializers");
     }
 }

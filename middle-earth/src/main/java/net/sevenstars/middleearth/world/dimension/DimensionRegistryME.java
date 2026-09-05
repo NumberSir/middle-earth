@@ -48,7 +48,7 @@ public class DimensionRegistryME {
         ME_WORLD_KEY = RegistryKey.of(RegistryKeys.WORLD, ME_DIMENSION_ID);
         RegistryAliasesME.aliases.add(new RegistryAliasesME.Alias(Registries.CHUNK_GENERATOR, ME_DIMENSION_ID.getPath()));
 
-        MiddleEarth.LOGGER.logDebugMsg("Registering ModDimensions for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Dimensions");
     }
 
     public static Vector3i getDimensionHeight(int x, int z) {

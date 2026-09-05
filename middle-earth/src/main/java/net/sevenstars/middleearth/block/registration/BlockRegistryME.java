@@ -832,6 +832,6 @@ public class BlockRegistryME {
     }
 
     public static void registerModBlocks() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering ModBlocks for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Blocks");
     }
 }

@@ -41,6 +41,6 @@ public class MemoryModulesME<U> {
     }
 
     public static void registerModMemoryModules() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Sensors for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Memory Modules");
     }
 }

@@ -82,6 +82,6 @@ public class DataComponentTypesME {
     }
 
     public static void registerModComponentTypes() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Component Types Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Component Types Items");
     }
 }

@@ -20,6 +20,6 @@ public class StatusEffectRegistryME {
     }
 
     public static void registerStatusEffects() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Status Effects for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Status Effects");
     }
 }

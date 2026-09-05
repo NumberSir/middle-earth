@@ -136,6 +136,6 @@ public class FoodItemsME {
     }
 
     public static void registerModItems() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Food Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Food Items");
     }
 }

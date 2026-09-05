@@ -68,7 +68,7 @@ public class EggItemsME {
     }
 
     public static void registerModItems() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Egg Items for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Egg Items");
 
         TranslationEntries.spawnEggEntries.add(MiddleEarth.id("npc_random_spawn_egg"));
     }

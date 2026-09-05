@@ -20,6 +20,6 @@ public class SensorsME {
     }
 
     public static void registerModSensors() {
-        MiddleEarth.LOGGER.logDebugMsg("Registering Mod Sensors for " + MiddleEarth.MOD_ID);
+        MiddleEarth.logRegistryMsg("Sensors");
     }
 }
