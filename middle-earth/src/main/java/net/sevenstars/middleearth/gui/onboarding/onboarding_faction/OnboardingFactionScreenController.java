@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.entity.EntitiesME;
 import net.sevenstars.middleearth.entity.npcs.NpcEntity;
@@ -40,7 +41,9 @@ import java.util.*;
 
 public class OnboardingFactionScreenController {
     public static OnboardingFactionScreenController INSTANCE;
-    private static final Text TITLE = Text.translatable("screen." + MiddleEarth.MOD_ID + ".onboarding_faction_screen");
+    private static final Text TITLE = Text.translatable(
+            MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, "onboarding_faction_screen")
+    );
     private static final float DEFAULT_DELAY = 3;
 
     World world;

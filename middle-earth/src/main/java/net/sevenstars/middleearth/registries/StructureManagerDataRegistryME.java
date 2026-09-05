@@ -33,7 +33,7 @@ public class StructureManagerDataRegistryME {
     private static StructureManagerData register(Registerable<StructureManagerData> context, RegistryEntryLookup<StructureManagerData> registryEntryLookup, StructureManagerData structureManagerData) {
         RegistryKey<StructureManagerData> registryKey = RegistryKey.of(DynamicRegistriesME.STRUCTURE_MANAGER_DATA, structureManagerData.getId());
         String name = registryKey.getValue().getPath();
-        RegistryKey<StructureManagerData> structureDataKey = RegistryKey.of(DynamicRegistriesME.STRUCTURE_MANAGER_DATA, Identifier.of(MiddleEarth.MOD_ID,name));
+        RegistryKey<StructureManagerData> structureDataKey = RegistryKey.of(DynamicRegistriesME.STRUCTURE_MANAGER_DATA, MiddleEarth.id(name));
 
         Optional<RegistryEntry.Reference<StructureManagerData>> optionalStructureDataReference = registryEntryLookup.getOptional(registryKey);
         optionalStructureDataReference.ifPresent(biomeReference -> context.register(structureDataKey, structureManagerData));

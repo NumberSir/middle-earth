@@ -10,14 +10,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.tooltip.TooltipAppender;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Uuids;
-import net.minecraft.util.dynamic.Codecs;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
-import net.sevenstars.middleearth.item.utils.armor.backAttachments.BackAttachmentsME;
-import net.sevenstars.middleearth.resources.datas.factions.Faction;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -41,7 +38,9 @@ public record ArtisanDataComponent(UUID uuid) implements TooltipAppender {
         try {
             if (profile.get().isPresent()){
                 try {
-                    textConsumer.accept(Text.translatable("tooltip.%s.artisan".formatted(MiddleEarth.MOD_ID)).append(
+                    textConsumer.accept(Text.translatable(
+                            MiddleEarth.rawTranslationKeyWithModId(LangCategory.TOOLTIP, "artisan")
+                    ).append(
                             profile.get().get().getName()).formatted(Formatting.GRAY));
                 } catch (InterruptedException | ExecutionException e) {
                     throw new RuntimeException(e);

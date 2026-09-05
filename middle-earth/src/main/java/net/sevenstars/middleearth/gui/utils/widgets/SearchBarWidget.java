@@ -11,6 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.StringHelper;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.gui.utils.widgets.searchbar.SearchBarResult;
 import net.sevenstars.middleearth.gui.utils.widgets.searchbar.SearchBarResultType;
@@ -54,11 +55,15 @@ public class SearchBarWidget extends CustomWidget {
             if (!searchBarToggle)
                 searchBarToggle = true;
         };
-        searchBarToggleButton = ButtonWidget.builder(Text.translatable("ui.%s.search.toggle_button".formatted(MiddleEarth.MOD_ID)), searchBarInputToggle).build();
+        searchBarToggleButton = ButtonWidget.builder(Text.translatable(
+                MiddleEarth.rawTranslationKeyWithModId(LangCategory.UI, "search.toggle_button")
+        ), searchBarInputToggle).build();
         searchBarToggleButton.setDimensions(desiredWidth, searchBarToggleButton.getHeight());
 
         // Screen click
-        screenClick = ButtonWidget.builder(Text.translatable("ui.%s.search.screen_click_button".formatted(MiddleEarth.MOD_ID)), button -> clickOnScreen(button, additionalScreenClickAction)).build();
+        screenClick = ButtonWidget.builder(Text.translatable(
+                MiddleEarth.rawTranslationKeyWithModId(LangCategory.UI, "search.screen_click_button")
+        ), button -> clickOnScreen(button, additionalScreenClickAction)).build();
         screenClick.setAlpha(0);
         screenClick.setMessage(Text.of(""));
 
@@ -116,7 +121,11 @@ public class SearchBarWidget extends CustomWidget {
         searchBarToggleButton.setDimensionsAndPosition(desiredWidth, panelSizeY, startX, startY);
         drawSearchBarBackground(context, SEARCH_WIDGET, startX, startY);
 
-        MutableText text = Text.translatable((!searchBarToggle && searchBarInput.isEmpty()) ? "ui.%s.search.label".formatted(MiddleEarth.MOD_ID) : searchBarInput);
+        MutableText text = Text.translatable(
+                (!searchBarToggle && searchBarInput.isEmpty())
+                        ? MiddleEarth.rawTranslationKeyWithModId(LangCategory.UI, "search.label")
+                        : searchBarInput
+        );
         context.drawText(textRenderer, text,
                 startX + magnifyingGlassSizeX + MINIMAL_MARGIN - 1,
                 startY + (int) ((panelSizeY / 2f) - (textRenderer.fontHeight / 2f)) + 1,

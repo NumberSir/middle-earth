@@ -18,6 +18,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.entity.EntitiesME;
 import net.sevenstars.middleearth.entity.spider.scuttler.ShelobiteScuttlerEntity;
@@ -75,21 +76,31 @@ public class PlayerBookScreen extends Screen {
                 WIDTH, HEIGHT, 384, 384);
 
         if(currentPage == 0) {
-            drawScaledText(textRenderer, context, Text.translatable("screen." + MiddleEarth.MOD_ID + ".playerbook.title").formatted(Formatting.UNDERLINE).formatted(Formatting.BOLD),
+            drawScaledText(textRenderer, context, Text.translatable(
+                            MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, "playerbook.title")
+                    ).formatted(Formatting.UNDERLINE).formatted(Formatting.BOLD),
                     startX + (int)(WIDTH * 0.325), startY + (int)(HEIGHT * 0.11f), 1.5f, Colors.BLACK, true);
 
-            context.drawWrappedText(textRenderer, Text.translatable("screen." + MiddleEarth.MOD_ID + ".playerbook.description"), startX + 38, startY + (int)(HEIGHT * 0.22f), 116, Colors.BLACK, false);
+            context.drawWrappedText(textRenderer, Text.translatable(
+                    MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, "playerbook.description")
+            ), startX + 38, startY + (int)(HEIGHT * 0.22f), 116, Colors.BLACK, false);
 
-            drawScaledText(textRenderer, context, Text.translatable("screen." + MiddleEarth.MOD_ID + ".playerbook.chapters").formatted(Formatting.UNDERLINE).formatted(Formatting.BOLD),
+            drawScaledText(textRenderer, context, Text.translatable(
+                            MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, "playerbook.chapters")
+                    ).formatted(Formatting.UNDERLINE).formatted(Formatting.BOLD),
                     startX + (int)(WIDTH * 0.75), startY + (int)(HEIGHT * 0.11f), 1.5f, Colors.BLACK, true);
             int index = 0;
             for(Chapter chapter : chapters) {
-                MutableText text = Text.translatable("screen." + MiddleEarth.MOD_ID + "." + chapter.name);
+                MutableText text = Text.translatable(
+                        MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, chapter.name)
+                );
                 int startTooltipX = centerX + 30;
                 int startTooltipY = (context.getScaledWindowHeight() / 2) - (int)(HEIGHT * 0.295f) + (index * 18);
                 if (mouseX >= startTooltipX && mouseX <= startTooltipX + (chapter.name.length() * 4.75) + 5 && mouseY >= startTooltipY && mouseY <= startTooltipY + 9) {
                     context.drawOrderedTooltip(this.client.textRenderer, Lists.transform(
-                            List.of(Text.translatable("screen." + MiddleEarth.MOD_ID + ".playerbook.navigate_to")
+                            List.of(Text.translatable(
+                                    MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, "playerbook.navigate_to")
+                                    )
                             ), Text::asOrderedText), mouseX, mouseY);
                     text.formatted(Formatting.UNDERLINE);
                 }
@@ -101,7 +112,9 @@ public class PlayerBookScreen extends Screen {
         } else {
             PlayerBookPageData pageData = chaptersPages.get(currentChapter).get(currentPage - 1);
             if(pageData != null) {
-                drawScaledText(textRenderer, context, Text.translatable("screen." + MiddleEarth.MOD_ID + "." + pageData.leftPageTitle).formatted(Formatting.UNDERLINE),
+                drawScaledText(textRenderer, context, Text.translatable(
+                                MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, pageData.leftPageTitle)
+                        ).formatted(Formatting.UNDERLINE),
                         startX + (int)(WIDTH * 0.3), startY + (int)(HEIGHT * 0.11f), 1.25f, Colors.BLACK, true);
 
                 if(pageData.image != null) {
@@ -110,9 +123,13 @@ public class PlayerBookScreen extends Screen {
                             WIDTH, HEIGHT, 320, 320);
                 }
 
-                context.drawWrappedText(textRenderer, Text.translatable("screen." + MiddleEarth.MOD_ID + "." + pageData.leftPageDescription),
+                context.drawWrappedText(textRenderer, Text.translatable(
+                                MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, pageData.leftPageDescription)
+                        ),
                         startX + 38, startY + (int)(HEIGHT * 0.2f), 116, Colors.BLACK, false);
-                context.drawWrappedText(textRenderer, Text.translatable("screen." + MiddleEarth.MOD_ID + "." + pageData.rightPageDescription),
+                context.drawWrappedText(textRenderer, Text.translatable(
+                        MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, pageData.rightPageDescription)
+                        ),
                         startX + (int)(WIDTH * 0.5f) + 16, startY + (int)(HEIGHT * 0.16f), 114, Colors.BLACK, false);
             }
         }

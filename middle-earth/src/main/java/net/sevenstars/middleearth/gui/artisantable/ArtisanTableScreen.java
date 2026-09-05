@@ -7,6 +7,7 @@ import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.inventory.CraftingResultInventory;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.item.EquipmentItemsME;
 import net.sevenstars.middleearth.item.ToolItemsME;
@@ -382,6 +383,8 @@ public class ArtisanTableScreen extends HandledScreen<ArtisanTableScreenHandler>
     }
 
     private static Text getTabTranslation(String tab) {
-        return Text.translatable("screen." + MiddleEarth.MOD_ID + ".artisan_table." + tab);
+        return Text.translatable(
+                MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, "artisan_table." + tab)
+        );
     }
 }

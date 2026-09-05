@@ -11,6 +11,7 @@ import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.block.registration.BlockEntityRegistryME;
 import net.sevenstars.middleearth.block.special.forge.MetalTypes;
@@ -216,7 +217,7 @@ public class ShapingAnvilBlockEntity extends BlockEntity implements ExtendedScre
                     if (metal.isVanilla()){
                         output.set(DataComponentTypes.TRIM, new ArmorTrim(
                                 armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(metal.getName()))),
-                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID,"smithing_part")))));
+                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, MiddleEarth.id("smithing_part")))));
                     } else {
                         output.set(DataComponentTypes.TRIM, new ArmorTrim(
                                 armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, MiddleEarth.id(metal.getName()))),
@@ -295,7 +296,9 @@ public class ShapingAnvilBlockEntity extends BlockEntity implements ExtendedScre
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("screen." + MiddleEarth.MOD_ID + "." + ID);
+        return Text.translatable(
+                MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, ID)
+        );
     }
 
     @Nullable

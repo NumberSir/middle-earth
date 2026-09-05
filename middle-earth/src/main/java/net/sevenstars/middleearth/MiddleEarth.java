@@ -198,15 +198,42 @@ public class MiddleEarth implements ModInitializer {
 	}
 
 	// Translation Keys
-	public static String rawTranslationKey(LangCategory category, String value){
-		return category.Prefix + "." + value;
+	// for Identifier value
+	public static String rawTranslationKey(String prefix, Identifier value){
+		return value.toTranslationKey(prefix);
 	}
 
 	public static String rawTranslationKey(LangCategory category, Identifier value){
-		return value.toTranslationKey(category.Prefix);
+		return rawTranslationKey(category.Prefix, value);
 	}
 
+	// for String value
 	public static String rawTranslationKey(String prefix, String value){
-		return prefix + "." + value;
+        if ("".equals(value)) {
+            return prefix;
+        }
+        return prefix + "." + value;
+    }
+	public static String rawTranslationKeyWithModId(String prefix, String value){
+		return rawTranslationKey(prefix + "." + MOD_ID, value);
+	}
+
+	public static String rawTranslationKey(LangCategory category, String value){
+		return rawTranslationKey(category.Prefix, value);
+	}
+
+	/**
+	 * <br/>Most common use,
+	 * <br/>to replace the string inside the Text.translatable()
+	 * <br/><br/>
+	 * <br/>Example:
+	 * <br/>		Text.translatable("some_category." + MOD_ID + ".something_else")
+	 * <br/>	    ->
+	 * <br/>	    Text.translatable(
+	 * <br/>	    	MiddleEarth.rawTranslationKeyWithModId(LangCategory.SOME, "something_else")
+	 * <br/>	    )
+	 */
+	public static String rawTranslationKeyWithModId(LangCategory category, String value){
+		return rawTranslationKey(category.Prefix + "." + MOD_ID, value);
 	}
 }

@@ -11,6 +11,7 @@ import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.block.registration.BlockEntityRegistryME;
 import net.sevenstars.middleearth.block.registration.DecorativeBlockRegistryME;
@@ -133,7 +134,9 @@ public class ForgeBlockEntity extends BlockEntity implements ExtendedScreenHandl
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("screen." + MiddleEarth.MOD_ID + "." + ID);
+        return Text.translatable(
+                MiddleEarth.rawTranslationKeyWithModId(LangCategory.SCREEN, ID)
+        );
     }
 
     public int getStorage() {

@@ -24,6 +24,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 import net.sevenstars.middleearth.exceptions.FactionIdentifierException;
 import net.sevenstars.middleearth.registries.DynamicRegistriesME;
@@ -357,7 +358,9 @@ public class Faction {
 
     public ItemStack getBannerItem(RegistryWrapper.WrapperLookup wrapper){
         if(bannerData == null) return ItemStack.EMPTY;
-        return bannerData.getBannerItem(wrapper, Text.translatable("block.%s.faction_banner".formatted(MiddleEarth.MOD_ID), getFullName()).formatted(Formatting.GOLD));
+        return bannerData.getBannerItem(wrapper, Text.translatable(
+                MiddleEarth.rawTranslationKeyWithModId(LangCategory.BLOCK, "faction_banner"),
+                getFullName()).formatted(Formatting.GOLD));
     }
 
     public List<Identifier> getSubFactions(){
@@ -438,7 +441,7 @@ public class Faction {
         descriptions = new ArrayList<>();
         boolean hasDescription = true;
 
-        String base = MiddleEarth.stringAggregate('.', "description", MiddleEarth.MOD_ID, id.getPath(), "description_%s");
+        String base = MiddleEarth.rawTranslationKeyWithModId(LangCategory.DESCRIPTION, id.getPath() + ".description_%s");
 
         while(hasDescription){
             String langPath = base.formatted(descriptions.size());

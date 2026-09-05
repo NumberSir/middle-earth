@@ -2,6 +2,8 @@ package net.sevenstars.api.enums;
 
 public enum LangCategory {
     NONE(""),
+
+    BUTTON("button"),
     TOOLTIP("tooltip"),
     SCREEN("screen"),
     CONTAINER("container"),
@@ -20,7 +22,6 @@ public enum LangCategory {
     COMMAND("command"),
     DESCRIPTION("description"),
     DISPOSITION("disposition"),
-    EMI("emi"),
     ENTITY("entity"),
     EVENT("event"),
     EXCEPTION("exception"),
@@ -29,6 +30,7 @@ public enum LangCategory {
     PAINTING("painting"),
     INSCRIPTION("inscription"),
     RACE("race"),
+    SEASON("season"),
     SOUNDS("sounds"),
     STRUCTURE_MANAGER_DATA("structure_manager_data"),
     STRUCTURE_NEST("structure_nest"),
@@ -36,7 +38,12 @@ public enum LangCategory {
     TRIM_PATTERN("trim_pattern"),
     UI("ui"),
     KEY("key"),
-    WIDGET("widget");
+    WIDGET("widget"),
+
+    // compat
+    EMI("emi"),
+    REI("rei"),
+    MOD_MENU("modmenu");
 
     public String Prefix;
     LangCategory(String prefix){
