@@ -147,11 +147,13 @@ public class MiddleEarth implements ModInitializer {
 	}
 
 	// Identifiers
-	// This is for compatibility with OLD_MOD_ID
-	public static Identifier id(String prefix, String path) {
-		return IdentifierUtil.build(prefix, path);
+	public static Identifier id(String namespace, String path) {
+		return IdentifierUtil.build(namespace, path);
 	}
 
+	/**
+	 * MiddleEarth.id(path) = MiddleEarth.id(path)
+	 */
 	public static Identifier id(String path){
 		return id(MOD_ID, path);
 	}

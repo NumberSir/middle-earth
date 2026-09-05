@@ -101,7 +101,7 @@ public class EntitiesME {
     }
 
     private static RegistryKey<EntityType<?>> keyOf(String id) {
-        return RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MiddleEarth.MOD_ID, id));
+        return RegistryKey.of(RegistryKeys.ENTITY_TYPE, MiddleEarth.id(id));
     }
 
     private static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> type) {

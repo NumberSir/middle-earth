@@ -390,11 +390,11 @@ public class ForgeBlockEntity extends BlockEntity implements ExtendedScreenHandl
                     else if(entity.currentMetal.isVanilla()) {
                         itemstack.set(DataComponentTypes.TRIM, new ArmorTrim(
                                 armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(entity.currentMetal.getName()))),
-                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID, "smithing_part")))));
+                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, MiddleEarth.id("smithing_part")))));
                     } else {
                         itemstack.set(DataComponentTypes.TRIM, new ArmorTrim(
-                                armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(MiddleEarth.MOD_ID, entity.currentMetal.getName()))),
-                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID, "smithing_part")))));
+                                armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, MiddleEarth.id(entity.currentMetal.getName()))),
+                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, MiddleEarth.id("smithing_part")))));
 
                     }itemstack.set(DataComponentTypesME.TEMPERATURE_DATA, new TemperatureDataComponent(100));
                 }
@@ -408,12 +408,12 @@ public class ForgeBlockEntity extends BlockEntity implements ExtendedScreenHandl
                     } else if (entity.currentMetal.isVanilla()){
                         itemstack.set(DataComponentTypes.TRIM, new ArmorTrim(
                                 armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(entity.currentMetal.getName()))),
-                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID, "smithing_part")))));
+                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, MiddleEarth.id("smithing_part")))));
 
                     } else {
                         itemstack.set(DataComponentTypes.TRIM, new ArmorTrim(
-                                armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(MiddleEarth.MOD_ID, entity.currentMetal.getName()))),
-                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID, "smithing_part")))));
+                                armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, MiddleEarth.id(entity.currentMetal.getName()))),
+                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, MiddleEarth.id("smithing_part")))));
 
                     }
                     itemstack.set(DataComponentTypesME.TEMPERATURE_DATA, new TemperatureDataComponent(100));

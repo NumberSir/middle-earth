@@ -57,14 +57,14 @@ public class EggItemsME {
         SimpleItemModel.items.add(item);
         TranslationEntries.itemEntries.add(item);
         RegistryAliasesME.aliases.add(new RegistryAliasesME.Alias(Registries.ITEM, name));
-        return Registry.register(Registries.ITEM, Identifier.of(MiddleEarth.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, MiddleEarth.id(name), item);
     }
     private static Item registerSpecialEgg(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
         Item item = (Item)factory.apply(settings.registryKey(BlockRegistryME.keyOfItem(name)));
         ItemGroupsME.SPAWN_EGGS_CONTENTS.add(item.getDefaultStack());
         TranslationEntries.itemEntries.add(item);
         RegistryAliasesME.aliases.add(new RegistryAliasesME.Alias(Registries.ITEM, name));
-        return Registry.register(Registries.ITEM, Identifier.of(MiddleEarth.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, MiddleEarth.id(name), item);
     }
 
     public static void registerModItems() {

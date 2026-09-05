@@ -208,9 +208,9 @@ public class ShapingAnvilBlockEntity extends BlockEntity implements ExtendedScre
                     output.set(DataComponentTypes.TRIM, input.get(DataComponentTypes.TRIM));
                 } else{
                     MetalTypes metal = MetalTypes.EMPTY;
-                    if(input.isIn(TagKey.of(RegistryKeys.ITEM, Identifier.of(MiddleEarth.MOD_ID, "ingot_shaping")))) {
+                    if(input.isIn(TagKey.of(RegistryKeys.ITEM, MiddleEarth.id("ingot_shaping")))) {
                         metal = MetalTypes.getMetalByIngot(input.getItem());
-                    }else if(input.isIn(TagKey.of(RegistryKeys.ITEM, Identifier.of(MiddleEarth.MOD_ID, "nugget_shaping")))) {
+                    }else if(input.isIn(TagKey.of(RegistryKeys.ITEM, MiddleEarth.id("nugget_shaping")))) {
                         metal = MetalTypes.getMetalByNugget(input.getItem());
                     }
                     if (metal.isVanilla()){
@@ -219,8 +219,8 @@ public class ShapingAnvilBlockEntity extends BlockEntity implements ExtendedScre
                                 armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID,"smithing_part")))));
                     } else {
                         output.set(DataComponentTypes.TRIM, new ArmorTrim(
-                                armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(MiddleEarth.MOD_ID, metal.getName()))),
-                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, Identifier.of(MiddleEarth.MOD_ID, "smithing_part")))));
+                                armorTrimMaterialRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_MATERIAL, MiddleEarth.id(metal.getName()))),
+                                armorTrimPatternRegistry.getOrThrow(RegistryKey.of(RegistryKeys.TRIM_PATTERN, MiddleEarth.id("smithing_part")))));
                     }
                 }
                 if (input.get(DataComponentTypesME.TEMPERATURE_DATA) != null){

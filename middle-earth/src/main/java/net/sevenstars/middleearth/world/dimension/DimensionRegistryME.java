@@ -28,7 +28,7 @@ import net.sevenstars.middleearth.world.map.MiddleEarthMapConfigs;
 import org.joml.Vector3i;
 
 public class DimensionRegistryME {
-    public static Identifier ME_DIMENSION_ID = Identifier.of(MiddleEarth.MOD_ID, "middle_earth");
+    public static Identifier ME_DIMENSION_ID = MiddleEarth.id("middle_earth");
     public static Identifier OW_DIMENSION_ID = Identifier.of("overworld");
 
     public static final RegistryKey<DimensionOptions> ME_DIMENSION_KEY =

@@ -22,7 +22,7 @@ public class RecipeSerializerRegistryME<T extends Recipe<?>> {
     public static final SpecialCraftingRecipe.SpecialRecipeSerializer<CustomItemDecorationRecipe> CUSTOM_ITEM_DECORATION = register("custom_item_decoration", new SpecialCraftingRecipe.SpecialRecipeSerializer<>(CustomItemDecorationRecipe::new));
 
     static <S extends RecipeSerializer<T>, T extends Recipe<?>> S register(String id, S serializer) {
-        return Registry.register(Registries.RECIPE_SERIALIZER, Identifier.of(MiddleEarth.MOD_ID, id), serializer);
+        return Registry.register(Registries.RECIPE_SERIALIZER, MiddleEarth.id(id), serializer);
     }
 
     public static void registerRecipeSerializers(){

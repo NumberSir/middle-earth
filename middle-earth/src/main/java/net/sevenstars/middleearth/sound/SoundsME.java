@@ -36,7 +36,7 @@ public class SoundsME {
     public static SoundEvent CAVE_TROLL_STEP = registerSoundEvent("cave_troll_step");
 
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = Identifier.of(MiddleEarth.MOD_ID, name);
+        Identifier id = MiddleEarth.id(name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 

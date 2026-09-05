@@ -69,7 +69,7 @@ public class BannerPatternsME {
 
     private static RegistryKey<BannerPattern> key(String id) {
         TranslationEntries.bannerPatternEntries.add(id);
-        return RegistryKey.of(RegistryKeys.BANNER_PATTERN, Identifier.of(MiddleEarth.MOD_ID, id));
+        return RegistryKey.of(RegistryKeys.BANNER_PATTERN, MiddleEarth.id(id));
     }
 
     public static void register(Registerable<BannerPattern> registry) {
