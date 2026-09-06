@@ -1,6 +1,7 @@
 package net.sevenstars.middleearth;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.model.loading.v1.ExtraModelKey;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.model.loading.v1.SimpleUnbakedExtraModel;
@@ -17,10 +18,13 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.item.model.special.SpecialModelTypes;
 import net.minecraft.client.render.item.property.bool.BooleanProperties;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.resource.language.I18n;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.block.registration.*;
 import net.sevenstars.middleearth.block.special.bellows.BellowsBlockEntityRenderer;
 import net.sevenstars.middleearth.block.special.coffers.*;
+import net.sevenstars.middleearth.config.ClientConfigME;
+import net.sevenstars.middleearth.config.ServerConfigME;
 import net.sevenstars.middleearth.block.special.fire_of_orthanc.FireOfOrthancEntityRenderer;
 import net.sevenstars.middleearth.block.special.forge.ForgeEntityRenderer;
 import net.sevenstars.middleearth.block.special.plate.PlateEntityRenderer;
@@ -104,11 +108,23 @@ public class MiddleEarthClient implements ClientModInitializer {
 
     public static final EntityModelLayer HELD_BANNER_LAYER = new EntityModelLayer(MiddleEarth.id("held_banner"), "main");
 
+    private static boolean configsRegistered = false;
+
     @Override
     public void onInitializeClient() {
         ClientNetworkHandlerME.register(new ConnectionToServer());
 
         KeyInputHandler.register();
+
+        // config are only generated AFTER the client language files loaded
+        // TODO: there might be a better way for this
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (!configsRegistered && I18n.hasTranslation(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "client.section.title"))) {
+                configsRegistered = true;
+                ServerConfigME.registerConfigs();
+                ClientConfigME.registerConfigs();
+            }
+        });
 
         EntityModelsME.getModels();
         BooleanProperties.ID_MAPPER.put(MiddleEarth.id("sneak_attack"), SneakAttackProperty.CODEC);

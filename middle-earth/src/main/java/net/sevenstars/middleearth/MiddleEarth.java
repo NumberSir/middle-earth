@@ -1,12 +1,12 @@
 package net.sevenstars.middleearth;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.util.Identifier;
 import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.api.utils.ModLogger;
 import net.sevenstars.middleearth.block.registration.*;
 import net.sevenstars.middleearth.commands.CommandRegistryME;
-import net.sevenstars.middleearth.config.ClientConfigME;
 import net.sevenstars.middleearth.config.ServerConfigME;
 import net.sevenstars.middleearth.enchantments.EnchantmentsME;
 import net.sevenstars.middleearth.entity.EntitiesME;
@@ -59,8 +59,12 @@ public class MiddleEarth implements ModInitializer {
 
 		ServerNetworkHandlerME.register(new ConnectionToClient());
 		EventRegistryME.register();
-		ServerConfigME.registerConfigs();
-		ClientConfigME.registerConfigs();
+
+		// register on server start
+		// *** FABRIC EVENT ***
+		ServerLifecycleEvents.SERVER_STARTING.register(
+				server -> ServerConfigME.registerConfigs()
+		);
 
 		AtlasesME.registerAtlas();
 		RecipesME.registerRecipes();

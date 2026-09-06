@@ -1,8 +1,10 @@
 package net.sevenstars.middleearth.config;
 
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.client.resource.language.I18n;
 import net.sevenstars.api.config.ConfigProvider;
 import net.sevenstars.api.config.SimpleConfig;
+import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.middleearth.MiddleEarth;
 
 public class ServerConfigME {
@@ -43,52 +45,52 @@ public class ServerConfigME {
     }
 
     private static void createServerConfigs() {
-        configs.addSection("Server Configs");
-        configs.addComment("This file stores server/host configuration options for the Middle-earth mod.");
+        configs.addSection(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.section.title")));
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.title.line_1")));
         configs.addLineJump();
 
         // World configurations
-        configs.addComment("World configurations");
-        configs.addDescription("Should players respawn at their selected spawn location in Middle-earth if they die without having a bed assigned?");
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.world")));
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.world.line_1")));
         configs.addKeyValuePair(new Pair<>("enableSpawnOverride", true), "boolean");
-        configs.addDescription("Should players be able to return to the overworld by reusing the starlight phial?");
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.world.line_2")));
         configs.addKeyValuePair(new Pair<>("enableReturnToOverworld", true), "boolean");
-        configs.addDescription("Should procedural structures (such as Orthanc) generate in Middle-earth?");
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.world.line_3")));
         configs.addKeyValuePair(new Pair<>("enableProceduralStructures", true), "boolean");
-        configs.addDescription("Maximum amount of non-persistent entity per type in Middle-earth");
-        configs.addKeyValuePair(new Pair<>("globalMobCap", true), "int");
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.world.line_4")));
+        configs.addKeyValuePair(new Pair<>("globalMobCap", 50), "int");
         configs.addLineJump();
 
         // PlayerFactionPayload configurations
-        configs.addComment("PlayerFactionPayload configurations");
-        configs.addDescription("Should players be allowed to change factions when they use the starlight phial?");
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.player")));
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.player.line_1")));
         configs.addKeyValuePair(new Pair<>("enableFactionReset", true), "boolean");
-        configs.addDescription("Should players keep their race when returning to the Overworld");
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.player.line_2")));
         configs.addKeyValuePair(new Pair<>("enableKeepRaceOnDimensionSwap", true), "boolean");
-        configs.addDescription("Amount of time before teleporting");
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.player.line_3")));
         configs.addKeyValuePair(new Pair<>("delayOnTeleportConfirmation", 3), "int");
         configs.addLineJump();
 
         // Mount configurations
-        configs.addComment("Mount configurations");
-        configs.addDescription("Should players and NPCs be allowed to ride broadhoof goats?");
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.mount")));
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.mount.line_1")));
         configs.addKeyValuePair(new Pair<>("enableMountBroadhoofGoat", true), "boolean");
 
         // Food configurations
-        configs.addComment("Food configurations");
-        configs.addDescription("Should players be allowed to craft golden apples and golden carrots in Middle-earth?");
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.food")));
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.food.line_1")));
         configs.addKeyValuePair(new Pair<>("enableGoldenFoodRecipes", false), "boolean");
 
         // Golem configurations
-        configs.addComment("Golem configurations");
-        configs.addDescription("Should players be allowed to place golems with block patterns in Middle-earth?");
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.golem")));
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.golem.line_1")));
         configs.addKeyValuePair(new Pair<>("enableGolems", false), "boolean");
 
         // Enchants configurations
-        configs.addComment("Enchants configurations");
-        configs.addDescription("What is the maximum level a sharpness can have in an anvil output");
+        configs.addComment(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.comment.enchant")));
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.enchant.line_1")));
         configs.addKeyValuePair(new Pair<>("sharpnessMaxLevel", 3), "int");
-        configs.addDescription("What is the maximum level a power can have in an anvil output");
+        configs.addDescription(I18n.translate(MiddleEarth.rawTranslationKeyWithModId(LangCategory.CONFIG, "server.description.enchant.line_2")));
         configs.addKeyValuePair(new Pair<>("powerMaxLevel", 3), "int");
     }
 

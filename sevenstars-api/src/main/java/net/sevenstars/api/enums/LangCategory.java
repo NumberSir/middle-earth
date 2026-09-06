@@ -30,7 +30,6 @@ public enum LangCategory {
     PAINTING("painting"),
     INSCRIPTION("inscription"),
     RACE("race"),
-    SEASON("season"),
     SOUNDS("sounds"),
     STRUCTURE_MANAGER_DATA("structure_manager_data"),
     STRUCTURE_NEST("structure_nest"),
@@ -39,6 +38,8 @@ public enum LangCategory {
     UI("ui"),
     KEY("key"),
     WIDGET("widget"),
+    SEASON("season"),
+    CONFIG("config"),
 
     // compat
     EMI("emi"),
