@@ -6,8 +6,7 @@ import net.minecraft.util.Identifier;
 import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.api.network.connections.ConnectionToClient;
 import net.sevenstars.api.utils.IdentifierUtil;
-import net.sevenstars.api.utils.ModLogger;
-import net.sevenstars.ofhallsandheralds.network.ClientNetworkHandlerHH;
+import net.sevenstars.api.utils.LoggerUtil;
 import net.sevenstars.ofhallsandheralds.network.ServerNetworkHandlerHH;
 import net.sevenstars.ofhallsandheralds.registries.DynamicRegistriesHH;
 import net.sevenstars.ofhallsandheralds.registries.RegistriesHH;
@@ -16,7 +15,7 @@ import net.sevenstars.ofhallsandheralds.registries.custom.EventRegistryHH;
 public class OfHallsAndHeralds implements ModInitializer {
 	private static final String MOD_ID = "ofhallsandheralds";
 	public static final boolean IS_DEBUG = true;
-	public static final ModLogger LOGGER = new ModLogger(MOD_ID, IS_DEBUG);
+	public static final LoggerUtil LOGGER = new LoggerUtil(MOD_ID, IS_DEBUG);
 
     @Override
 	public void onInitialize() {

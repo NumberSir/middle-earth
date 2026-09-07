@@ -6,7 +6,6 @@ import net.minecraft.entity.ai.brain.Memory;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import net.sevenstars.api.SevenStarsApi;
 
 import java.util.Optional;
@@ -27,14 +26,14 @@ public class MemoryModulesAPI<U> {
     }
 
     private static <U> MemoryModuleType<U> register(String idPath, Codec<U> codec) {
-        return Registry.register(Registries.MEMORY_MODULE_TYPE, SevenStarsApi.id(idPath), new MemoryModuleType<>(Optional.of(codec)));
+        return Registry.register(Registries.MEMORY_MODULE_TYPE, SevenStarsApi.INSTANCE.id(idPath), new MemoryModuleType<>(Optional.of(codec)));
     }
 
     private static <U> MemoryModuleType<U> register(String idPath) {
-        return Registry.register(Registries.MEMORY_MODULE_TYPE, SevenStarsApi.id(idPath), new MemoryModuleType<>(Optional.empty()));
+        return Registry.register(Registries.MEMORY_MODULE_TYPE, SevenStarsApi.INSTANCE.id(idPath), new MemoryModuleType<>(Optional.empty()));
     }
 
     public static void register() {
-        SevenStarsApi.logRegistryMsg("Sensors");
+        SevenStarsApi.INSTANCE.logRegistryMessage("Sensors");
     }
 }

@@ -1,22 +1,21 @@
 package net.sevenstars.api.utils;
 
-import net.sevenstars.api.SevenStarsApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ModLogger {
+public class LoggerUtil {
     protected Logger LOGGER;
     protected boolean isDebug;
     protected String messagePrefix;
 
-    public ModLogger(String prefix, boolean debug){
+    public LoggerUtil(String prefix, boolean debug){
         messagePrefix = prefix;
         LOGGER = LoggerFactory.getLogger(prefix);
         isDebug = debug;
     }
 
     public void logDebugMsg(String msg) {
-        if(SevenStarsApi.IS_DEBUG){
+        if(isDebug){
             LOGGER.info(buildMessage(msg));
         }
     }

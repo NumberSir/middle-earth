@@ -6,14 +6,14 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
-import net.sevenstars.api.utils.ModLogger;
+import net.sevenstars.api.utils.LoggerUtil;
 import net.sevenstars.middleearth.MiddleEarth;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StructureNestList {
-    ModLogger logger = MiddleEarth.LOGGER;
+    LoggerUtil logger = MiddleEarth.LOGGER;
     public static final Codec<StructureNestList> CODEC;
     public static final PacketCodec<ByteBuf, StructureNestList> PACKET_CODEC;
     private static final String ID = "spawn_nest_list";

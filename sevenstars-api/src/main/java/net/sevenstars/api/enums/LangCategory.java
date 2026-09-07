@@ -1,5 +1,9 @@
 package net.sevenstars.api.enums;
 
+import net.minecraft.text.MutableText;
+import net.sevenstars.api.AbstractModInitializer;
+import net.sevenstars.api.SevenStarsApi;
+
 public enum LangCategory {
     NONE(""),
     TOOLTIP("tooltip"),
@@ -41,5 +45,11 @@ public enum LangCategory {
     public String Prefix;
     LangCategory(String prefix){
         this.Prefix = prefix;
+    }
+
+    public String createKey(AbstractModInitializer modInitializer, String... names) {
+        return modInitializer
+                .id(modInitializer.idAggregate('.', names).toString())
+                .toTranslationKey(Prefix);
     }
 }

@@ -4,12 +4,12 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.api.utils.IdentifierUtil;
-import net.sevenstars.api.utils.ModLogger;
+import net.sevenstars.api.utils.LoggerUtil;
 
 public class OfHillsAndDells implements ModInitializer {
 	private static final String MOD_ID = "ofhillsanddells";
 	public static final boolean IS_DEBUG = true;
-	public static final ModLogger LOGGER = new ModLogger(MOD_ID, IS_DEBUG);
+	public static final LoggerUtil LOGGER = new LoggerUtil(MOD_ID, IS_DEBUG);
 
 
 	@Override

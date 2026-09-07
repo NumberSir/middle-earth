@@ -4,7 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.sevenstars.api.enums.LangCategory;
 import net.sevenstars.api.utils.IdentifierUtil;
-import net.sevenstars.api.utils.ModLogger;
+import net.sevenstars.api.utils.LoggerUtil;
 import net.sevenstars.of_beasts_and_wild_things.block.BlocksWT;
 import net.sevenstars.of_beasts_and_wild_things.entity.EntitiesWT;
 import net.sevenstars.of_beasts_and_wild_things.entity.ai.brain.ActivitiesWT;
@@ -20,7 +20,7 @@ import net.sevenstars.of_beasts_and_wild_things.world.gen.WorldGenerationWT;
 public class OfBeastsAndWildThings implements ModInitializer {
 	public static final String MOD_ID = "wild-things";
 	public static final boolean IS_DEBUG = true;
-	public static final ModLogger LOGGER = new ModLogger(MOD_ID, IS_DEBUG);
+	public static final LoggerUtil LOGGER = new LoggerUtil(MOD_ID, IS_DEBUG);
 	@Override
 	public void onInitialize() {
 		EntitiesWT.register();
